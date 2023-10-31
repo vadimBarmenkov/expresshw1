@@ -9,7 +9,7 @@ const app = express();
 
 app.use(logger);
 
-app.use('/public', )
+//app.use('/public', );
 app.use('/', indexRouter);
 
 

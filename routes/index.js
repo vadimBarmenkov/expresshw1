@@ -48,11 +48,13 @@ router.get('/api/books/:id/download', (req, res) => {
     }
 });
 router.post('/api/books', fileMulter.single('book-txt'), (req, res) => {
+    const {id, title, desc, authors, favorite, fileCover, fileName} = req.params;
     if(req.file){
-        const {path} = req.file
-        res.json({path})
+        const {path} = req.file;
+        res.json({path});
     }
     res.json();
+    store.books.push(new Book({id, title, desc, authors, favorite, fileCover, fileName}));
 });
 router.post('/api/user/login', (req, res) => {
 
